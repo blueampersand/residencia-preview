@@ -1,0 +1,77 @@
+/* Residencias Senior Care — production site shared styles.
+   Palette + type per DESIGN.md. Tailwind (CDN) handles layout utilities;
+   this file owns base, components, motion, forms, and a11y bits. */
+
+:root{
+  --sand:#f5f2ec; --surface:#fbf9f5; --blue:#5b7daf; --bluedeep:#3f5f8a;
+  --teal:#72c8b4; --amber:#eea839; --ink:#2a2e33; --inksoft:#5c6168;
+  --rest:0 1px 2px rgba(63,95,138,.06),0 8px 24px rgba(63,95,138,.08);
+  --lift:0 2px 4px rgba(63,95,138,.08),0 18px 48px rgba(63,95,138,.14);
+}
+html{scroll-behavior:smooth}
+body{background:var(--sand);color:var(--ink);font-family:'Nunito Sans',system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Fraunces',serif;letter-spacing:-.02em;line-height:1.1;color:var(--ink)}
+a,button{cursor:pointer}
+img{max-width:100%}
+
+.shadow-rest{box-shadow:var(--rest)} .shadow-lift{box-shadow:var(--lift)}
+
+/* Skip link (a11y) */
+.skip{position:absolute;left:-999px;top:0;z-index:100;background:var(--ink);color:#fff;padding:10px 16px;border-radius:0 0 10px 0}
+.skip:focus{left:0}
+
+/* Focus + press states on every interactive element */
+.focusable:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:10px}
+.btn{transition:transform .18s ease-out,box-shadow .18s ease-out,background-color .18s ease-out,color .18s ease-out}
+.btn:active{transform:scale(.98)}
+
+/* Buttons */
+.btn-primary{background:var(--blue);color:#fff;font-weight:700;border-radius:999px;padding:.65rem 1.25rem;display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary:hover{background:var(--bluedeep)}
+.btn-amber{background:var(--amber);color:var(--ink);font-weight:800;border-radius:999px;padding:.9rem 1.6rem;display:inline-flex;align-items:center;gap:.5rem}
+.btn-amber:hover{filter:brightness(1.05)}
+.btn-ghost{color:var(--bluedeep);font-weight:700;border:1px solid rgba(63,95,138,.3);border-radius:999px;padding:.9rem 1.5rem;display:inline-flex;align-items:center;gap:.5rem}
+.btn-ghost:hover{background:rgba(63,95,138,.06)}
+
+/* Header / nav */
+.site-header{position:sticky;top:0;z-index:40;background:rgba(245,242,236,.85);backdrop-filter:blur(8px);border-bottom:1px solid rgba(63,95,138,.1)}
+.nav-link{font-weight:600;color:var(--ink);font-size:15px;position:relative}
+.nav-link:hover{color:var(--bluedeep)}
+.nav-link[aria-current="page"]{color:var(--bluedeep)}
+.nav-link[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--teal);border-radius:2px}
+
+/* Mobile menu */
+.menu-btn{display:none}
+#mobile-nav{display:none}
+#mobile-nav.open{display:block}
+@media (max-width:860px){
+  .desktop-nav{display:none}
+  .menu-btn{display:inline-grid}
+}
+
+/* Motion: reveal + ken burns + card hover */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease-out,transform .55s ease-out}
+.reveal.in{opacity:1;transform:none}
+.kenburns{animation:kb 22s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.04)}to{transform:scale(1.13)}}
+.moment{transition:transform .22s ease-out,box-shadow .22s ease-out;display:block}
+.moment:hover{transform:translateY(-6px)}
+.moment:hover .play{opacity:1;transform:scale(1)}
+.play{opacity:0;transform:scale(.8);transition:opacity .2s ease-out,transform .2s ease-out}
+.imgzoom{overflow:hidden}.imgzoom img{transition:transform .6s ease-out}.imgzoom:hover img{transform:scale(1.05)}
+
+/* Forms */
+.field{display:flex;flex-direction:column;gap:.4rem}
+.field label{font-weight:700;font-size:.95rem;color:var(--ink)}
+.field .req{color:var(--amber)}
+.field input,.field textarea,.field select{font-family:inherit;font-size:16px;background:#fff;border:1px solid rgba(63,95,138,.25);border-radius:12px;padding:.8rem .9rem;color:var(--ink);min-height:48px}
+.field input:focus,.field textarea:focus{border-color:var(--teal);outline-offset:0}
+.field .help{font-size:.85rem;color:var(--inksoft)}
+.hp{position:absolute;left:-9999px}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .kenburns{animation:none}
+}

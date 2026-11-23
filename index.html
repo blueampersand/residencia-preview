@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Residencias Senior Care — Elige una dirección de diseño</title>
+<meta name="description" content="Cinco direcciones de diseño para el sitio de Residencias Senior Care. Explora cada una como un sitio completo y elige tu favorita.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/Logo-Residencia-Azul_Mesa-de-trabajo-1.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,500..600&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--sand:#f5f2ec;--surface:#fbf9f5;--blue:#5b7daf;--bluedeep:#3f5f8a;--teal:#72c8b4;--amber:#eea839;--ink:#2a2e33;--inksoft:#5c6168;--night:#1c2024}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--sand);color:var(--ink);font-family:'Nunito Sans',system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;letter-spacing:-.02em;line-height:1.08;margin:0}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:10px}
+
+  header{padding:22px 0}
+  .top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand img{height:68px}
+  .lang{font-weight:700;font-size:.85rem;color:var(--bluedeep);background:transparent;border:1px solid rgba(63,95,138,.3);border-radius:999px;padding:.4rem .75rem;cursor:pointer;font-family:inherit}
+  .lang:hover{background:rgba(63,95,138,.06)}
+
+  .hero{text-align:center;padding:48px 0 10px}
+  .eyebrow{color:var(--bluedeep);font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:.78rem}
+  .hero h1{font-size:clamp(2.3rem,6vw,4rem);margin-top:16px}
+  .hero p{color:var(--inksoft);font-size:1.18rem;max-width:620px;margin:18px auto 0}
+
+  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:800;border-radius:999px;text-decoration:none;padding:.9rem 1.5rem;transition:transform .16s ease-out,background-color .16s,box-shadow .16s}
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--blue);color:#fff;box-shadow:0 10px 26px rgba(63,95,138,.22)}
+  .btn-primary:hover{background:var(--bluedeep)}
+  .btn-ghost{border:1px solid rgba(63,95,138,.3);color:var(--bluedeep)}
+  .btn-ghost:hover{background:rgba(63,95,138,.06)}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding:40px 0 10px}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+  .card{position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid rgba(63,95,138,.12);border-radius:22px;padding:28px;text-decoration:none;color:inherit;overflow:hidden;box-shadow:0 1px 2px rgba(63,95,138,.05),0 14px 34px rgba(63,95,138,.07);transition:transform .2s ease-out,box-shadow .2s ease-out}
+  .card:hover{transform:translateY(-6px);box-shadow:0 2px 4px rgba(63,95,138,.08),0 26px 56px rgba(63,95,138,.16)}
+  .card .accent{position:absolute;inset:0 auto 0 0;width:6px}
+  .card .row{display:flex;align-items:center;gap:16px}
+  .badge{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:700;font-size:1.5rem;color:#fff}
+  .card h3{font-size:1.5rem}
+  .chip{display:inline-block;margin-top:2px;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--inksoft)}
+  .card p{color:var(--inksoft);margin:16px 0 0}
+  .view{margin-top:18px;font-weight:800;color:var(--bluedeep);display:inline-flex;align-items:center;gap:6px}
+  .card:hover .view{gap:10px}
+
+  /* per-direction accents */
+  .c-a .accent{background:var(--amber)} .c-a .badge{background:var(--amber);color:var(--ink)}
+  .c-b .accent{background:var(--night)} .c-b .badge{background:var(--night)}
+  .c-c .accent{background:var(--teal)}  .c-c .badge{background:#2f8f78}
+  .c-d .accent{background:var(--blue)}  .c-d .badge{background:var(--blue)}
+  .c-e .accent{background:var(--bluedeep)} .c-e .badge{background:var(--bluedeep)}
+
+  footer{text-align:center;color:var(--inksoft);font-size:.9rem;padding:40px 0 48px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="top">
+      <span class="brand"><img src="assets/img/Logo-Residencia-Azul_Mesa-de-trabajo-1.png" alt="Residencias Senior Care"></span>
+      <button class="lang" id="lang">ES</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow" data-en="Website design review" data-es="Revisión de diseño del sitio">Website design review</p>
+    <h1 data-en="Five ways to tell our story." data-es="Cinco formas de contar nuestra historia.">Five ways to tell our story.</h1>
+    <p data-en="Each direction below is a complete website — explore Home, About, Gallery and Contact in whichever feels right, then tell us your favorite." data-es="Cada dirección es un sitio completo: explora Inicio, Nosotros, Galería y Contacto en la que más te guste, y dinos cuál prefieres.">Each direction below is a complete website — explore Home, About, Gallery and Contact in whichever feels right, then tell us your favorite.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="concepts/index.html" data-en="Compare side by side →" data-es="Compara lado a lado →">Compare side by side →</a>
+    </div>
+  </section>
+
+  <section class="grid" aria-label="Design directions">
+    <a class="card c-a" href="concepts/design-a-moments/index.html">
+      <span class="accent"></span>
+      <div class="row"><span class="badge">A</span><div><h3 data-en="Come Back to Life" data-es="Volver a Vivir">Come Back to Life</h3><span class="chip" data-en="Warm &amp; joyful" data-es="Cálido y alegre">Warm &amp; joyful</span></div></div>
+      <p data-en="The warmest, most human direction. A pinboard of everyday moments with a video-hero feel." data-es="La dirección más cálida y humana. Un mosaico de momentos cotidianos con sensación de video.">The warmest, most human direction. A pinboard of everyday moments with a video-hero feel.</p>
+      <span class="view" data-en="View full site →" data-es="Ver sitio completo →">View full site →</span>
+    </a>
+    <a class="card c-b" href="concepts/design-b-seahome/index.html">
+      <span class="accent"></span>
+      <div class="row"><span class="badge">B</span><div><h3 data-en="A Home by the Sea" data-es="Un Hogar junto al Mar">A Home by the Sea</h3><span class="chip" data-en="Dark &amp; premium" data-es="Oscuro y premium">Dark &amp; premium</span></div></div>
+      <p data-en="Elegant dark-editorial look with oversized type. Feels boutique and upmarket." data-es="Estética editorial oscura y elegante, con tipografía grande. Se siente boutique y premium.">Elegant dark-editorial look with oversized type. Feels boutique and upmarket.</p>
+      <span class="view" data-en="View full site →" data-es="Ver sitio completo →">View full site →</span>
+    </a>
+    <a class="card c-c" href="concepts/design-c-day/index.html">
+      <span class="accent"></span>
+      <div class="row"><span class="badge">C</span><div><h3 data-en="A Day in the Light" data-es="Un Día en la Luz">A Day in the Light</h3><span class="chip" data-en="Bright &amp; reassuring" data-es="Luminoso y tranquilizador">Bright &amp; reassuring</span></div></div>
+      <p data-en="Walks a worried family through one real day, hour by hour. Concrete and calming." data-es="Acompaña a la familia por un día real, hora por hora. Concreto y tranquilizador.">Walks a worried family through one real day, hour by hour. Concrete and calming.</p>
+      <span class="view" data-en="View full site →" data-es="Ver sitio completo →">View full site →</span>
+    </a>
+    <a class="card c-d" href="concepts/design-d-hands/index.html">
+      <span class="accent"></span>
+      <div class="row"><span class="badge">D</span><div><h3 data-en="In Good Hands" data-es="En Buenas Manos">In Good Hands</h3><span class="chip" data-en="Trust-led" data-es="Basado en la confianza">Trust-led</span></div></div>
+      <p data-en="Puts family peace of mind and testimonials front and center. Built to reassure." data-es="Pone la tranquilidad de la familia y los testimonios al frente. Hecho para dar confianza.">Puts family peace of mind and testimonials front and center. Built to reassure.</p>
+      <span class="view" data-en="View full site →" data-es="Ver sitio completo →">View full site →</span>
+    </a>
+    <a class="card c-e" href="concepts/design-e-revived/index.html">
+      <span class="accent"></span>
+      <div class="row"><span class="badge">E</span><div><h3 data-en="Revived by Connection" data-es="Revividos por la Conexión">Revived by Connection</h3><span class="chip" data-en="Refined &amp; immersive" data-es="Refinado e inmersivo">Refined &amp; immersive</span></div></div>
+      <p data-en="A polished, immersive editorial feel with an asymmetric hero and a floating quote." data-es="Una sensación editorial refinada e inmersiva, con hero asimétrico y una cita flotante.">A polished, immersive editorial feel with an asymmetric hero and a floating quote.</p>
+      <span class="view" data-en="View full site →" data-es="Ver sitio completo →">View full site →</span>
+    </a>
+    <div class="card" style="justify-content:center;align-items:center;text-align:center;background:transparent;border-style:dashed;box-shadow:none">
+      <h3 data-en="Not sure?" data-es="¿No estás seguro?">Not sure?</h3>
+      <p data-en="See all five next to each other, with a desktop / mobile toggle." data-es="Ve las cinco juntas, con interruptor de escritorio / móvil.">See all five next to each other, with a desktop / mobile toggle.</p>
+      <a class="btn btn-ghost" style="margin-top:16px" href="concepts/index.html" data-en="Open the comparison →" data-es="Abrir la comparación →">Open the comparison →</a>
+    </div>
+  </section>
+
+  <footer data-en="© Residencias Senior Care · Playas de Tijuana · internal design preview" data-es="© Residencias Senior Care · Playas de Tijuana · vista previa interna de diseño">© Residencias Senior Care · Playas de Tijuana · internal design preview</footer>
+</div>
+
+<script>
+  let es=true; const btn=document.getElementById('lang');
+  function applyLang(){document.documentElement.lang=es?'es':'en';btn.textContent=es?'EN':'ES';
+    document.querySelectorAll('[data-en]').forEach(el=>{const v=el.getAttribute(es?'data-es':'data-en');if(v!=null)el.innerHTML=v;});}
+  btn.addEventListener('click',()=>{es=!es;applyLang();});applyLang();
+</script>
+</body>
+</html>

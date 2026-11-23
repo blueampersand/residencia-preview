@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Residencias Senior Care — Revisión de diseño</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/Logo-Residencia-Azul_Mesa-de-trabajo-1.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  :root{--sand:#f5f2ec;--surface:#fbf9f5;--blue:#5b7daf;--bluedeep:#3f5f8a;--teal:#72c8b4;--amber:#eea839;--ink:#2a2e33;--inksoft:#5c6168}
+  html,body{margin:0;height:100%}
+  body{background:#e9e5dc;color:var(--ink);font-family:'Nunito Sans',system-ui,sans-serif;display:flex;flex-direction:column;min-height:100vh}
+  a,button{cursor:pointer;font-family:inherit}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:8px}
+
+  header{background:var(--sand);border-bottom:1px solid rgba(63,95,138,.12);position:sticky;top:0;z-index:10}
+  .bar{display:flex;align-items:center;gap:16px;padding:12px 18px;max-width:1500px;margin:0 auto;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .brand img{height:51px}
+  .brand .label{font-family:'Fraunces',serif;font-weight:700;font-size:15px;line-height:1.1}
+  .brand .label small{display:block;font-family:'Nunito Sans';font-weight:600;font-size:11px;color:var(--inksoft)}
+
+  .tabs{display:flex;gap:8px;flex:1;overflow-x:auto;padding:2px;scrollbar-width:thin}
+  .tab{white-space:nowrap;font-weight:700;font-size:13px;border:1px solid rgba(63,95,138,.25);background:var(--surface);color:var(--bluedeep);border-radius:999px;padding:8px 14px;transition:transform .15s ease-out,background-color .15s,color .15s}
+  .tab:hover{background:#fff}
+  .tab:active{transform:scale(.98)}
+  .tab[aria-selected="true"]{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .tab small{display:block;font-weight:600;font-size:10px;opacity:.8;letter-spacing:.02em}
+  .tab.full{border-color:var(--amber);color:var(--amber)}
+  .tab.full[aria-selected="true"]{background:var(--amber);color:var(--ink);border-color:var(--amber)}
+
+  .controls{display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .seg{display:inline-flex;background:var(--surface);border:1px solid rgba(63,95,138,.25);border-radius:999px;overflow:hidden}
+  .seg button{border:0;background:transparent;color:var(--bluedeep);font-weight:700;font-size:12px;padding:7px 12px;display:inline-flex;align-items:center;gap:6px}
+  .seg button[aria-pressed="true"]{background:var(--blue);color:#fff}
+  .open{font-weight:700;font-size:12px;color:var(--bluedeep);text-decoration:none;border:1px solid rgba(63,95,138,.25);border-radius:999px;padding:7px 12px;white-space:nowrap}
+  .open:hover{background:var(--surface)}
+
+  .caption{max-width:1500px;margin:0 auto;padding:0 18px 10px;color:var(--inksoft);font-size:13px}
+  .caption b{color:var(--ink);font-family:'Fraunces',serif;font-weight:700}
+
+  main{flex:1;padding:16px 18px 28px;display:flex;justify-content:center}
+  .stage{width:100%;max-width:1400px;transition:max-width .25s ease-out}
+  .stage.mobile{max-width:412px}
+  .frame{background:#fff;border:1px solid rgba(63,95,138,.18);border-radius:16px;overflow:hidden;box-shadow:0 18px 48px rgba(63,95,138,.16);height:calc(100vh - 150px);min-height:480px}
+  .stage.mobile .frame{border-radius:28px;height:calc(100vh - 160px)}
+  iframe{width:100%;height:100%;border:0;display:block}
+  @media (max-width:720px){ .caption{display:none} .controls .seg{display:none} }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div class="brand">
+      <img src="../assets/img/Logo-Residencia-Azul_Mesa-de-trabajo-1.png" alt="Residencias Senior Care">
+      <span class="label">Revisión de diseño<small>Elige una dirección · sitios completos</small></span>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Direcciones de diseño">
+      <button class="tab" role="tab" aria-selected="true"  data-src="design-a-moments/index.html"  id="t-a">A · Volver a Vivir<small>momentos cálidos</small></button>
+      <button class="tab" role="tab" aria-selected="false" data-src="design-b-seahome/index.html"  id="t-b">B · Un Hogar junto al Mar<small>editorial oscuro</small></button>
+      <button class="tab" role="tab" aria-selected="false" data-src="design-c-day/index.html"      id="t-c">C · Un Día en la Luz<small>un día</small></button>
+      <button class="tab" role="tab" aria-selected="false" data-src="design-d-hands/index.html"    id="t-d">D · En Buenas Manos<small>testimonios</small></button>
+      <button class="tab" role="tab" aria-selected="false" data-src="design-e-revived/index.html"  id="t-e">E · Revividos por la Conexión<small>inmersivo</small></button>
+    </div>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Preview size">
+        <button id="d-desktop" aria-pressed="true" title="Vista escritorio">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Escritorio</button>
+        <button id="d-mobile" aria-pressed="false" title="Vista móvil">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>Móvil</button>
+      </div>
+      <a class="open" id="open-tab" href="design-a-moments/index.html" target="_blank" rel="noopener">Abrir ↗</a>
+    </div>
+  </div>
+  <p class="caption" id="caption"><b>Volver a Vivir</b> — la dirección más cálida y humana: un mosaico de momentos con sensación de video. Detalle: pasa el cursor sobre un momento para reproducirlo.</p>
+</header>
+
+<main>
+  <div class="stage" id="stage">
+    <div class="frame"><iframe id="viewer" title="Design preview" src="design-a-moments/index.html"></iframe></div>
+  </div>
+</main>
+
+<script>
+const CAPTIONS={
+ 't-a':'<b>Volver a Vivir</b> — la dirección más cálida y humana: un mosaico de momentos con sensación de video. Detalle: pasa el cursor sobre un momento para reproducirlo.',
+ 't-b':'<b>Un Hogar junto al Mar</b> — editorial oscuro y premium, con tipografía grande. Detalle: las líneas aparecen al desplazarte.',
+ 't-c':'<b>Un Día en la Luz</b> — cercano y concreto: un día, hora por hora. Detalle: una línea de tiempo horizontal que puedes recorrer.',
+ 't-d':'<b>En Buenas Manos</b> — enfocado en la confianza, con los testimonios al frente. Detalle: desliza entre las voces.',
+ 't-e':'<b>Revividos por la Conexión</b> — editorial refinado e inmersivo. Detalle: portada asimétrica con una cita flotante.'
+};
+const HINT=' <span style="color:var(--inksoft)">· cada una es un sitio completo; usa el menú de la vista para ver Nosotros, Galería y Contacto.</span>';
+const tabs=[...document.querySelectorAll('.tab')];
+const viewer=document.getElementById('viewer');
+const openTab=document.getElementById('open-tab');
+const caption=document.getElementById('caption');
+function select(tab){
+  tabs.forEach(t=>t.setAttribute('aria-selected', t===tab?'true':'false'));
+  const src=tab.dataset.src;
+  viewer.src=src;
+  openTab.href=src;
+  caption.innerHTML=(CAPTIONS[tab.id]||'')+HINT;
+  tab.scrollIntoView({block:'nearest',inline:'nearest',behavior:'smooth'});
+}
+tabs.forEach((tab,i)=>{
+  tab.addEventListener('click',()=>select(tab));
+  tab.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'){e.preventDefault();const n=tabs[(i+1)%tabs.length];n.focus();select(n);}
+    if(e.key==='ArrowLeft'){e.preventDefault();const n=tabs[(i-1+tabs.length)%tabs.length];n.focus();select(n);}
+  });
+});
+// device toggle
+const stage=document.getElementById('stage');
+const bD=document.getElementById('d-desktop'), bM=document.getElementById('d-mobile');
+bD.addEventListener('click',()=>{stage.classList.remove('mobile');bD.setAttribute('aria-pressed','true');bM.setAttribute('aria-pressed','false');});
+bM.addEventListener('click',()=>{stage.classList.add('mobile');bM.setAttribute('aria-pressed','true');bD.setAttribute('aria-pressed','false');});
+</script>
+</body>
+</html>

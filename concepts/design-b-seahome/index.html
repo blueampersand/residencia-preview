@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Residencias Senior Care — A Small Home by the Sea</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+tailwind.config={theme:{extend:{
+ colors:{sand:'#f5f2ec',surface:'#fbf9f5',blue:'#5b7daf',bluedeep:'#3f5f8a',teal:'#72c8b4',amber:'#eea839',ink:'#2a2e33',inksoft:'#5c6168',night:'#1c2024'},
+ fontFamily:{display:['Fraunces','serif'],sans:['"Nunito Sans"','system-ui','sans-serif']}}}}
+</script>
+<style>
+ html{scroll-behavior:smooth}
+ body{background:#1c2024;color:#e9e5dc;font-family:'Nunito Sans',system-ui,sans-serif;line-height:1.7}
+ h1,h2,h3{font-family:'Fraunces',serif;letter-spacing:-.025em;line-height:1.02}
+ a,button{cursor:pointer}
+ .focusable:focus-visible{outline:2px solid #72c8b4;outline-offset:3px;border-radius:10px}
+ .btn{transition:transform .18s ease-out,background-color .18s ease-out,color .18s ease-out}.btn:active{transform:scale(.98)}
+ .line{display:block;opacity:0;transform:translateY(40px);transition:opacity .6s ease-out,transform .6s ease-out}
+ .line.in{opacity:1;transform:none}
+ .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease-out,transform .6s ease-out}.reveal.in{opacity:1;transform:none}
+ .imgzoom{overflow:hidden}.imgzoom img{transition:transform .6s ease-out}.imgzoom:hover img{transform:scale(1.05)}
+ @media (prefers-reduced-motion:reduce){*{animation:none!important}.line,.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body class="antialiased">
+<header class="sticky top-0 z-40 bg-night/80 backdrop-blur border-b border-white/10">
+ <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
+  <a href="index.html" class="focusable flex items-center gap-3"><img src="../../assets/img/Logo-Residencia-Senior-Care.png" alt="Residencias Senior Care" class="h-[68px] w-auto brightness-0 invert opacity-90"></a>
+  <nav class="hidden md:flex gap-7 text-[15px] font-600 text-white/80">
+   <a class="focusable hover:text-teal" href="index.html" data-en="Home" data-es="Inicio">Home</a>
+   <a class="focusable hover:text-teal" href="about.html" data-en="About" data-es="Nosotros">About</a>
+   <a class="focusable hover:text-teal" href="gallery.html" data-en="Gallery" data-es="Galería">Gallery</a>
+   <a class="focusable hover:text-teal" href="contact.html" data-en="Contact" data-es="Contacto">Contact</a>
+  </nav>
+  <div class="flex items-center gap-2">
+   <button id="lang" class="focusable btn text-sm font-700 text-teal border border-teal/40 rounded-full px-3 py-1.5 hover:bg-teal/10">ES</button>
+   <a href="contact.html" class="focusable btn hidden sm:inline-flex bg-teal text-night font-800 text-sm rounded-full px-4 py-2.5 hover:bg-white" data-en="Schedule a visit" data-es="Agenda una visita">Schedule a visit</a>
+  </div>
+ </div>
+</header>
+
+<!-- HERO: oversized line-reveal -->
+<section class="max-w-6xl mx-auto px-5 pt-24 pb-16 md:pt-36 md:pb-24">
+ <p class="text-teal font-700 uppercase tracking-widest text-sm mb-8 reveal" data-en="Boutique senior care · Playas de Tijuana" data-es="Cuidado boutique · Playas de Tijuana">Boutique senior care · Playas de Tijuana</p>
+ <h1 class="text-[13vw] md:text-[8.5rem] leading-[0.95]">
+  <span class="line" data-en="A small home" data-es="Un hogar pequeño">A small home</span>
+  <span class="line text-teal italic font-[400]" data-en="by the sea," data-es="junto al mar,">by the sea,</span>
+  <span class="line" data-en="where life returns." data-es="donde la vida vuelve.">where life returns.</span>
+ </h1>
+ <div class="mt-10 flex flex-wrap items-center gap-6 reveal">
+  <a href="contact.html" class="focusable btn bg-amber text-night font-800 rounded-full px-7 py-4" data-en="Schedule a guided visit" data-es="Agenda una visita guiada">Schedule a guided visit</a>
+  <a href="#video" class="focusable text-white/80 font-700 hover:text-teal inline-flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span data-en="Watch life here" data-es="Mira la vida aquí">Watch life here</span></a>
+ </div>
+</section>
+
+<div class="imgzoom max-w-7xl mx-auto px-5"><div class="rounded-[24px] overflow-hidden"><img class="w-full h-[46vh] md:h-[70vh] object-cover" src="../../assets/img/Gemini_Generated_Image_8rtju38rtju38rtj-1-2048x1143.jpg" alt="Residents together in the home by the sea"></div></div>
+
+<!-- STORY -->
+<section id="story" class="max-w-4xl mx-auto px-5 py-24 md:py-32">
+ <h2 class="text-4xl md:text-6xl mb-10 reveal" data-en="Not a facility. A home." data-es="No una institución. Un hogar.">Not a facility. A home.</h2>
+ <p class="text-xl md:text-2xl text-white/80 reveal" data-en="Because we stay boutique, the people here are known, not processed. Caregivers learn your parent's stories, their songs, how they take their coffee. Days have company, laughter and routine, and something quietly remarkable happens: people come back to themselves." data-es="Al mantenernos boutique, aquí las personas son conocidas, no procesadas. Los cuidadores aprenden las historias de tu familiar, sus canciones, cómo toma el café. Los días tienen compañía, risas y rutina, y algo notable ocurre en silencio: las personas vuelven a ser ellas mismas.">Because we stay boutique, the people here are known, not processed. Caregivers learn your parent's stories, their songs, how they take their coffee. Days have company, laughter and routine, and something quietly remarkable happens: people come back to themselves.</p>
+ <div class="grid sm:grid-cols-2 gap-5 mt-12">
+  <div class="imgzoom rounded-[20px] overflow-hidden reveal"><img class="w-full h-72 object-cover" src="../../assets/img/Gemini_Generated_Image_7gbmsh7gbmsh7gbm-1150x770.jpg" alt="A shared afternoon"></div>
+  <div class="imgzoom rounded-[20px] overflow-hidden reveal"><img class="w-full h-72 object-cover" src="../../assets/img/Gemini_Generated_Image_oy2mkeoy2mkeoy2m.jpg" alt="Time by the sea"></div>
+ </div>
+</section>
+
+<!-- CARE as numbered editorial list -->
+<section id="care" class="border-y border-white/10 bg-night">
+ <div class="max-w-5xl mx-auto px-5 py-24">
+  <h2 class="text-3xl md:text-5xl mb-14 reveal" data-en="What a day holds" data-es="Lo que ofrece un día">What a day holds</h2>
+  <div id="care-list" class="divide-y divide-white/10"></div>
+ </div>
+</section>
+
+<!-- TEAM + QUOTE -->
+<section id="team" class="max-w-6xl mx-auto px-5 py-24 grid lg:grid-cols-2 gap-14 items-center">
+ <blockquote class="reveal">
+  <p class="text-3xl md:text-4xl font-display leading-tight" data-en="“Great peace, knowing she's in such good hands.”" data-es="“Una gran paz, saber que está en tan buenas manos.”">“Great peace, knowing she's in such good hands.”</p>
+  <footer class="mt-6 text-teal font-700" data-en="— Daughter of a resident" data-es="— Hija de una residente">— Daughter of a resident</footer>
+ </blockquote>
+ <div class="flex gap-6 reveal">
+  <figure class="text-center"><img class="w-24 h-24 rounded-full object-cover" src="../../assets/img/Gemini_Generated_Image_g0idong0idong0id-1-600x600.jpg" alt="Sandra Torres"><figcaption class="text-sm mt-2 font-700">Sandra<br><span class="text-white/60 font-400" data-en="Nurse" data-es="Enfermera">Nurse</span></figcaption></figure>
+  <figure class="text-center"><img class="w-24 h-24 rounded-full object-cover" src="../../assets/img/Gemini_Generated_Image_ancz5cancz5cancz-300x385.jpg" alt="María Saldívar"><figcaption class="text-sm mt-2 font-700">María<br><span class="text-white/60 font-400" data-en="Nutritionist" data-es="Nutrióloga">Nutritionist</span></figcaption></figure>
+  <figure class="text-center"><img class="w-24 h-24 rounded-full object-cover" src="../../assets/img/Gemini_Generated_Image_uc3cu5uc3cu5uc3c-300x385.jpg" alt="Brenda Salas"><figcaption class="text-sm mt-2 font-700">Brenda<br><span class="text-white/60 font-400" data-en="Admin" data-es="Administración">Admin</span></figcaption></figure>
+ </div>
+</section>
+
+<!-- EMBEDDED VIDEO -->
+<section id="video" class="max-w-5xl mx-auto px-5 py-16 md:py-20">
+  <h2 class="text-3xl md:text-4xl text-center" data-en="Life at Residencias" data-es="La vida en Residencias">La vida en Residencias</h2>
+  <p class="text-center mt-2" style="opacity:.72" data-en="A few moments from inside the home." data-es="Algunos momentos dentro de la casa.">Algunos momentos dentro de la casa.</p>
+  <div style="position:relative;padding-top:56.25%;margin-top:24px;border-radius:20px;overflow:hidden;box-shadow:0 18px 48px rgba(63,95,138,.16)">
+    <iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/1wSIQ9Ur9t4?rel=0&amp;list=UUcB2cGcfwb5mEG-iaCveaQw" title="La vida en Residencias Senior Care" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+
+<section id="visit" class="max-w-4xl mx-auto px-5 pb-28 text-center">
+ <h2 class="text-4xl md:text-6xl reveal" data-en="Come for a visit. Stay for lunch." data-es="Ven de visita. Quédate a comer.">Come for a visit. Stay for lunch.</h2>
+ <a href="https://wa.me/526644854400" class="focusable btn inline-block bg-teal text-night font-800 rounded-full px-8 py-4 mt-9 hover:bg-white" data-en="WhatsApp +52 664 485 4400" data-es="WhatsApp +52 664 485 4400">WhatsApp +52 664 485 4400</a>
+</section>
+
+<footer class="border-t border-white/10"><div class="max-w-6xl mx-auto px-5 py-10 text-sm text-white/50 flex flex-wrap justify-between gap-4"><span>© Residencias Senior Care · Playas de Tijuana</span><span>Crestón 1592, Jardines Playas de Tijuana, 22500</span></div></footer>
+
+<script>
+const CARE=[
+ {en:'24/7 geriatric nursing',es:'Enfermería geriátrica 24/7'},
+ {en:'Doctor-led medical care',es:'Atención médica dirigida por médico'},
+ {en:'Physical wellness & rehab',es:'Bienestar físico y rehabilitación'},
+ {en:'Three meals, two snacks a day',es:'Tres comidas y dos colaciones al día'},
+ {en:'Social & recreational connection',es:'Conexión social y recreativa'},
+];
+document.getElementById('care-list').innerHTML=CARE.map((c,i)=>`
+<div class="reveal py-6 flex items-baseline gap-6">
+ <span class="font-display text-teal text-2xl md:text-3xl w-12">${String(i+1).padStart(2,'0')}</span>
+ <h3 class="text-xl md:text-3xl text-white" data-en="${c.en}" data-es="${c.es}">${c.en}</h3>
+</div>`).join('');
+
+let es=true;const btn=document.getElementById('lang');
+function applyLang(){document.documentElement.lang=es?'es':'en';btn.textContent=es?'EN':'ES';
+ document.querySelectorAll('[data-en]').forEach(el=>{const v=el.getAttribute(es?'data-es':'data-en');if(v)el.textContent=v;});}
+btn.addEventListener('click',()=>{es=!es;applyLang();});applyLang();
+
+const io=new IntersectionObserver((en)=>en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// staggered line reveal
+const lio=new IntersectionObserver((en)=>en.forEach(e=>{if(e.isIntersecting){const ls=[...e.target.querySelectorAll('.line')];ls.forEach((l,i)=>setTimeout(()=>l.classList.add('in'),i*140));lio.unobserve(e.target)}}),{threshold:.3});
+document.querySelectorAll('h1').forEach(h=>lio.observe(h));
+</script>
+</body>
+</html>

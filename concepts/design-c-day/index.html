@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Residencias Senior Care — A Day in the Light</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+tailwind.config={theme:{extend:{
+ colors:{sand:'#f5f2ec',surface:'#fbf9f5',blue:'#5b7daf',bluedeep:'#3f5f8a',teal:'#72c8b4',amber:'#eea839',ink:'#2a2e33',inksoft:'#5c6168'},
+ fontFamily:{display:['Fraunces','serif'],sans:['"Nunito Sans"','system-ui','sans-serif']}}}}
+</script>
+<style>
+ html{scroll-behavior:smooth}
+ body{background:#f5f2ec;color:#2a2e33;font-family:'Nunito Sans',system-ui,sans-serif;line-height:1.7}
+ h1,h2,h3{font-family:'Fraunces',serif;letter-spacing:-.02em;line-height:1.08}
+ a,button{cursor:pointer}
+ .shadow-rest{box-shadow:0 1px 2px rgba(63,95,138,.06),0 8px 24px rgba(63,95,138,.08)}
+ .shadow-lift{box-shadow:0 2px 4px rgba(63,95,138,.08),0 18px 48px rgba(63,95,138,.14)}
+ .focusable:focus-visible{outline:2px solid #72c8b4;outline-offset:2px;border-radius:12px}
+ .btn{transition:transform .18s ease-out,background-color .18s ease-out}.btn:active{transform:scale(.98)}
+ .track{scroll-snap-type:x mandatory;scrollbar-width:none}.track::-webkit-scrollbar{display:none}
+ .slide{scroll-snap-align:center}
+ .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease-out,transform .5s ease-out}.reveal.in{opacity:1;transform:none}
+ @media (prefers-reduced-motion:reduce){*{animation:none!important}html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body class="antialiased">
+<header class="sticky top-0 z-40 bg-sand/85 backdrop-blur border-b border-bluedeep/10">
+ <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
+  <a href="index.html" class="focusable flex items-center gap-3"><img src="../../assets/img/Logo-Residencia-Azul_Mesa-de-trabajo-1.png" alt="Residencias Senior Care" class="h-[75px] w-auto"></a>
+  <nav class="hidden md:flex gap-7 text-[15px] font-600 text-ink">
+   <a class="focusable hover:text-bluedeep" href="index.html" data-en="Home" data-es="Inicio">Home</a>
+   <a class="focusable hover:text-bluedeep" href="about.html" data-en="About" data-es="Nosotros">About</a>
+   <a class="focusable hover:text-bluedeep" href="gallery.html" data-en="Gallery" data-es="Galería">Gallery</a>
+   <a class="focusable hover:text-bluedeep" href="contact.html" data-en="Contact" data-es="Contacto">Contact</a>
+  </nav>
+  <div class="flex items-center gap-2">
+   <button id="lang" class="focusable btn text-sm font-700 text-bluedeep border border-bluedeep/30 rounded-full px-3 py-1.5 hover:bg-bluedeep/5">ES</button>
+   <a href="contact.html" class="focusable btn hidden sm:inline-flex bg-blue text-white font-700 text-sm rounded-full px-4 py-2.5 hover:bg-bluedeep shadow-rest" data-en="Schedule a visit" data-es="Agenda una visita">Schedule a visit</a>
+  </div>
+ </div>
+</header>
+
+<section class="max-w-6xl mx-auto px-5 pt-20 pb-10 text-center">
+ <p class="text-bluedeep font-700 uppercase tracking-widest text-sm mb-4 reveal" data-en="Playas de Tijuana · by the sea" data-es="Playas de Tijuana · junto al mar">Playas de Tijuana · by the sea</p>
+ <h1 class="text-5xl md:text-7xl reveal" data-en="A good day, every day." data-es="Un buen día, cada día.">A good day, every day.</h1>
+ <p class="text-inksoft text-lg md:text-xl max-w-2xl mx-auto mt-5 reveal" data-en="Follow one day in our boutique home, from first light to the evening calm. Company, routine and care, hour by hour." data-es="Sigue un día en nuestro hogar boutique, desde el amanecer hasta la calma de la tarde. Compañía, rutina y cuidado, hora tras hora.">Follow one day in our boutique home, from first light to the evening calm. Company, routine and care, hour by hour.</p>
+</section>
+
+<!-- DAY TIMELINE SCRUB (signature) -->
+<section id="day" class="pb-6">
+ <div class="max-w-6xl mx-auto px-5 flex items-center justify-between mb-5">
+  <h2 class="text-2xl md:text-3xl" data-en="The rhythm of the day" data-es="El ritmo del día">The rhythm of the day</h2>
+  <div class="flex gap-2">
+   <button id="prev" aria-label="Previous" class="focusable btn w-11 h-11 grid place-items-center rounded-full bg-surface shadow-rest hover:bg-white text-bluedeep"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+   <button id="next" aria-label="Next" class="focusable btn w-11 h-11 grid place-items-center rounded-full bg-surface shadow-rest hover:bg-white text-bluedeep"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+ </div>
+ <div id="track" tabindex="0" role="group" aria-label="A day at Residencias" class="track focusable flex gap-5 overflow-x-auto px-5 md:px-[max(1.25rem,calc((100vw-72rem)/2))] pb-4"></div>
+ <div class="max-w-6xl mx-auto px-5 mt-2"><div class="h-1.5 rounded-full bg-bluedeep/10 overflow-hidden"><div id="bar" class="h-full bg-amber rounded-full transition-[width] duration-300" style="width:14%"></div></div></div>
+</section>
+
+<!-- CARE -->
+<section id="care" class="bg-surface border-y border-bluedeep/10 mt-10">
+ <div class="max-w-6xl mx-auto px-5 py-20">
+  <h2 class="text-3xl md:text-4xl text-center reveal" data-en="Care woven through every hour" data-es="Cuidado presente en cada hora">Care woven through every hour</h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12" id="care-grid"></div>
+ </div>
+</section>
+
+<!-- TEAM + TESTIMONIAL -->
+<section id="team" class="max-w-6xl mx-auto px-5 py-20 grid lg:grid-cols-2 gap-12 items-center">
+ <div class="reveal">
+  <h2 class="text-3xl md:text-5xl" data-en="The same faces, every day" data-es="Las mismas caras, cada día">The same faces, every day</h2>
+  <p class="text-inksoft text-lg mt-4" data-en="A boutique home means consistency: your parent sees people who know them, not a rotating roster." data-es="Un hogar boutique significa constancia: tu familiar ve a personas que lo conocen, no a un personal rotativo.">A boutique home means consistency: your parent sees people who know them, not a rotating roster.</p>
+  <div class="flex gap-5 mt-8">
+   <figure class="text-center"><img class="w-20 h-20 rounded-full object-cover shadow-rest" src="../../assets/img/Gemini_Generated_Image_g0idong0idong0id-1-600x600.jpg" alt="Sandra Torres"><figcaption class="text-sm font-700 mt-2">Sandra<br><span class="font-400 text-inksoft" data-en="Nurse" data-es="Enfermera">Nurse</span></figcaption></figure>
+   <figure class="text-center"><img class="w-20 h-20 rounded-full object-cover shadow-rest" src="../../assets/img/Gemini_Generated_Image_ancz5cancz5cancz-300x385.jpg" alt="María Saldívar"><figcaption class="text-sm font-700 mt-2">María<br><span class="font-400 text-inksoft" data-en="Nutritionist" data-es="Nutrióloga">Nutritionist</span></figcaption></figure>
+   <figure class="text-center"><img class="w-20 h-20 rounded-full object-cover shadow-rest" src="../../assets/img/Gemini_Generated_Image_uc3cu5uc3cu5uc3c-300x385.jpg" alt="Brenda Salas"><figcaption class="text-sm font-700 mt-2">Brenda<br><span class="font-400 text-inksoft" data-en="Admin" data-es="Administración">Admin</span></figcaption></figure>
+  </div>
+ </div>
+ <blockquote class="reveal bg-teal/15 border border-teal/30 rounded-[20px] p-9 md:p-11">
+  <p class="text-xl md:text-2xl font-display text-ink" data-en="“24-hour nursing, and they always keep us informed. Great peace, knowing she's in such good hands.”" data-es="“Enfermería las 24 horas, y siempre nos informan. Una gran paz saber que está en tan buenas manos.”">“24-hour nursing, and they always keep us informed. Great peace, knowing she's in such good hands.”</p>
+  <footer class="mt-5 text-bluedeep text-sm font-700" data-en="— Daughter of a resident" data-es="— Hija de una residente">— Daughter of a resident</footer>
+ </blockquote>
+</section>
+
+<!-- EMBEDDED VIDEO -->
+<section id="video" class="max-w-5xl mx-auto px-5 py-16 md:py-20">
+  <h2 class="text-3xl md:text-4xl text-center" data-en="Life at Residencias" data-es="La vida en Residencias">La vida en Residencias</h2>
+  <p class="text-center mt-2" style="opacity:.72" data-en="A few moments from inside the home." data-es="Algunos momentos dentro de la casa.">Algunos momentos dentro de la casa.</p>
+  <div style="position:relative;padding-top:56.25%;margin-top:24px;border-radius:20px;overflow:hidden;box-shadow:0 18px 48px rgba(63,95,138,.16)">
+    <iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube-nocookie.com/embed/1wSIQ9Ur9t4?rel=0&amp;list=UUcB2cGcfwb5mEG-iaCveaQw" title="La vida en Residencias Senior Care" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+
+<section id="visit" class="relative overflow-hidden">
+ <img class="absolute inset-0 w-full h-full object-cover" src="../../assets/img/Gemini_Generated_Image_w0i1apw0i1apw0i1.jpg" alt="">
+ <div class="absolute inset-0 bg-bluedeep/75"></div>
+ <div class="relative max-w-3xl mx-auto px-5 py-24 text-center">
+  <h2 class="text-white text-4xl md:text-5xl" data-en="Spend a day with us" data-es="Pasa un día con nosotros">Spend a day with us</h2>
+  <p class="text-white/85 text-lg mt-4" data-en="Come for a guided visit and stay for the main meal." data-es="Ven a una visita guiada y quédate a la comida.">Come for a guided visit and stay for the main meal.</p>
+  <a href="https://wa.me/526644854400" class="focusable btn inline-block bg-amber text-ink font-800 rounded-full px-7 py-4 mt-8 hover:brightness-105 shadow-lift">WhatsApp +52 664 485 4400</a>
+ </div>
+</section>
+
+<footer class="bg-sand border-t border-bluedeep/10"><div class="max-w-6xl mx-auto px-5 py-10 text-sm text-inksoft flex flex-wrap justify-between gap-4"><span>© Residencias Senior Care · Playas de Tijuana</span><span>Crestón 1592, Jardines Playas de Tijuana, 22500</span></div></footer>
+
+<script>
+const DAY=[
+ {t:'08:30',img:'../../assets/img/Gemini_Generated_Image_8rtju38rtju38rtj-1-1024x572.jpg',en:'Nourishing breakfast',es:'Desayuno nutritivo',de:'The house wakes together over coffee and warm food.',ds:'La casa despierta junta con café y comida caliente.'},
+ {t:'10:00',img:'../../assets/img/Gemini_Generated_Image_g0idong0idong0id-1-1024x1024.jpg',en:'Morning activity',es:'Actividad matutina',de:'Gentle movement, music and conversation.',ds:'Movimiento suave, música y conversación.'},
+ {t:'12:00',img:'../../assets/img/Gemini_Generated_Image_w0i1apw0i1apw0i1.jpg',en:'A light snack',es:'Refrigerio ligero',de:'Fruit and company between meals.',ds:'Fruta y compañía entre comidas.'},
+ {t:'14:00',img:'../../assets/img/Gemini_Generated_Image_7gbmsh7gbmsh7gbm-1150x770.jpg',en:'Main meal, together',es:'Comida principal, juntos',de:'The day’s centerpiece, shared at one table.',ds:'El centro del día, compartido en una mesa.'},
+ {t:'16:00',img:'../../assets/img/Gemini_Generated_Image_irvyqmirvyqmirvy.jpg',en:'Afternoon social',es:'Convivencia de la tarde',de:'Games, stories and an afternoon treat.',ds:'Juegos, historias y una colación.'},
+ {t:'17:30',img:'../../assets/img/Gemini_Generated_Image_8rtju38rtju38rtj-1150x770.jpg',en:'Quiet time',es:'Tiempo tranquilo',de:'A calm hour by the window as the light softens.',ds:'Una hora tranquila junto a la ventana mientras baja la luz.'},
+ {t:'19:00',img:'../../assets/img/Gemini_Generated_Image_w0i1apw0i1apw0i1.jpg',en:'A calm, light dinner',es:'Cena ligera y tranquila',de:'Winding down, safe and cared for through the night.',ds:'Cerrando el día, seguros y cuidados toda la noche.'},
+];
+const track=document.getElementById('track');
+track.innerHTML=DAY.map(d=>`
+<article class="slide shrink-0 w-[82%] sm:w-[60%] lg:w-[40%] bg-surface rounded-[22px] overflow-hidden shadow-rest">
+ <div class="relative"><img src="${d.img}" alt="${d.en}" class="w-full h-56 object-cover"><span class="absolute top-4 left-4 bg-ink/80 text-white font-800 text-sm rounded-full px-3 py-1">${d.t}</span></div>
+ <div class="p-6"><h3 class="text-2xl" data-en="${d.en}" data-es="${d.es}">${d.en}</h3><p class="text-inksoft mt-2" data-en="${d.de}" data-es="${d.ds}">${d.de}</p></div>
+</article>`).join('');
+
+const slides=[...track.querySelectorAll('.slide')];
+const bar=document.getElementById('bar');
+function update(){const max=track.scrollWidth-track.clientWidth;const p=max>0?track.scrollLeft/max:0;bar.style.width=(8+p*92)+'%';}
+track.addEventListener('scroll',update,{passive:true});
+function step(dir){const w=slides[0].offsetWidth+20;track.scrollBy({left:dir*w,behavior:'smooth'});}
+document.getElementById('next').addEventListener('click',()=>step(1));
+document.getElementById('prev').addEventListener('click',()=>step(-1));
+track.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();step(1)}if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}});
+update();
+
+const CARE=[
+ {en:'24/7 nursing',es:'Enfermería 24/7'},{en:'Medical care',es:'Atención médica'},
+ {en:'Wellness & rehab',es:'Bienestar y rehab'},{en:'Comfortable rooms',es:'Dormitorios confortables'},
+];
+document.getElementById('care-grid').innerHTML=CARE.map(c=>`<div class="reveal bg-sand rounded-[18px] p-6 text-center shadow-rest"><h3 class="text-lg" data-en="${c.en}" data-es="${c.es}">${c.en}</h3></div>`).join('');
+
+let es=true;const btn=document.getElementById('lang');
+function applyLang(){document.documentElement.lang=es?'es':'en';btn.textContent=es?'EN':'ES';
+ document.querySelectorAll('[data-en]').forEach(el=>{const v=el.getAttribute(es?'data-es':'data-en');if(v)el.textContent=v;});}
+btn.addEventListener('click',()=>{es=!es;applyLang();});applyLang();
+const io=new IntersectionObserver((en)=>en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
